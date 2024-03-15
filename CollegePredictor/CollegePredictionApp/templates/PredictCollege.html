@@ -1,0 +1,161 @@
+{% load static %}
+<html>
+<head>
+<title>Prediction of Admission in Engineering College</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter Your Rank");
+	formObj.t1.focus();
+	return false;
+	}
+	
+	formObj.actionUpdateData.value="update";
+	return true;
+	}
+	</script>
+	
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>Prediction of Admission in Engineering College</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+        <ul>
+      
+      <li><a href="{% url 'PredictCollege' %}">Predict Your Admission College</a></li>
+	 	 <li><a href="{% url 'index' %}">Logout</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="915" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'PredictCollegeAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Predict College </b></h2>
+   <br>
+	<font size="" color="red" style="font-size: 20px;"><center>{{ data }}</center></font>
+						
+						<table align="center" width="30%" style="font-size: 20px;" >
+			 <tr><td><font size='' color="black">Rank</b></td><td><input name="t1" type="text" size="15"></td></tr>
+
+			 <tr><td><font size='' color="black">Gender</b></td>
+			 <td><select name="t2">
+			 <option value="F">Female</option>
+			 <option value="M">Male</option>
+			 </select>
+			 </td></tr>
+         
+		 <tr><td><font size='' color="black">Caste</b></td>
+			 <td><select name="t3">
+			<option value="OC">OC</option>
+			 <option value="BC_A">BC_A</option>
+			 <option value="BC_B">BC_B</option>
+			 <option value="BC_C">BC_C</option>
+			 <option value="BC_D">BC_D</option>
+			 <option value="BC_E">BC_E</option>
+			 <option value="SC">SC</option>
+			 <option value="ST">ST</option>
+			 </select>
+			 </td></tr>
+
+			 <tr><td><font size='' color="black">University</b></td>
+			 <td><select name="t4">
+			 <option value="AU">AU</option>
+			 <option value="OU">OU</option>
+			 <option value="SVU">SVU</option>			
+			 </select>
+			 </td></tr>
+
+			 <tr><td><font size='' color="black">Branch</b></td>
+			 <td><select name="t5">
+			 <option value="B. PHARMACY (M.P.C. STREAM)">B. PHARMACY (M.P.C. STREAM)</option>
+			 <option value="CIVIL ENGINEERING">CIVIL ENGINEERING</option>
+			 <option value="ARTIFICIAL INTELLIGENCE AND DATA SCIENCE">ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</option>
+			 <option value="COMPUTER ENGINEERING(SOFTWARE ENGINEERING)">COMPUTER ENGINEERING(SOFTWARE ENGINEERING)</option>
+			 <option value="COMPUTER SCIENCE AND ENGINEERING">COMPUTER SCIENCE AND ENGINEERING</option>
+			 <option value="COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)">COMPUTER SCIENCE AND ENGINEERING (ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)</option>
+			 <option value="COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)">COMPUTER SCIENCE AND ENGINEERING (CYBER SECURITY)</option>
+			 <option value="COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)">COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)</option>
+			 <option value="COMPUTER SCIENCE AND ENGINEERING (IOT)">COMPUTER SCIENCE AND ENGINEERING (IOT)</option>
+			 <option value="ELECTRICAL AND ELECTRONICS ENGINEERING">ELECTRICAL AND ELECTRONICS ENGINEERING</option>
+			 <option value="ELECTRONICS AND COMMUNICATION ENGINEERING">ELECTRONICS AND COMMUNICATION ENGINEERING</option>
+			 <option value="FOOD PROCESSING TECHNOLOGY">FOOD PROCESSING TECHNOLOGY</option>
+			 <option value="ARTIFICIAL INTELLIGENCE">ARTIFICIAL INTELLIGENCE</option>
+			 <option value="INFORMATION TECHNOLOGY">INFORMATION TECHNOLOGY</option>
+			 <option value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</option>
+			 <option value="MINING ENGINEERING">MINING ENGINEERING</option>
+			 <option value="BIO-MEDICAL ENGINEERING">BIO-MEDICAL ENGINEERING</option>
+			 <option value="BIO-TECHNOLOGY">BIO-TECHNOLOGY</option>
+			 <option value="CHEMICAL ENGINEERING">CHEMICAL ENGINEERING</option>
+			 <option value="PHARM - D (M.P.C. STREAM)">PHARM - D (M.P.C. STREAM)</option>
+			 </select>
+			 </td></tr>
+		 
+
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+				<style>
+					body {
+					  margin: 0;
+					  padding: 0;
+					  width: 100%;
+					  color: #000000;
+					  background: #000000 url(images/main_bottom_bg.gif) repeat-x bottom;
+					  font-family: Arial, Helvetica, sans-serif;
+					  font-size: 12px;
+					  font-style: normal;
+					  line-height: 1.8em;
+					  font-weight: normal;
+					  font-variant: normal;
+				  }
+				  .content {
+					padding: 9px;
+					background: url(images/content_border_bg.png);
+					border: 0px solid #000000;
+				  }
+				  .hbg {
+					padding: 4px;
+					margin: 0 0 10px;
+					background: #FFF;
+					border: 0px solid #d8d8d8;
+				  }
+				  .menu_nav {
+					margin: 0 0 10px;
+					padding: 4px;
+					border: 0px solid #d8d8d8;
+					background: #FFF;
+				  }
+				  .menu_nav ul li a {
+					display: block;
+					margin: 0;
+					padding: 11px 25px;
+					color: #d8d8d8;
+					text-decoration: none;
+					font-size: 13px;
+					line-height: 16px;
+					font-size: 20px;
+					font-family: 'Times New Roman', Times, serif;
+				  }
+				  h1 span {
+					color: #ffffff;
+					padding-left: 220px;
+					font-family: 'Times New Roman', Times, serif;
+					font-size: 35px;
+				  }
+				  </style>	
+	</body>
+</html>
